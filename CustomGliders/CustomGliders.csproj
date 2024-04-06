@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    
+    <GamePath>D:\Games\Oculus\Software\another-axiom-gorilla-tag\</GamePath>
+    <ManagedAssembliesPath>$(GamePath)/Gorilla Tag_Data\Managed</ManagedAssembliesPath>
+    <BepInEx_Path>$(GamePath)/BepInEx/</BepInEx_Path>
+    <PluginsPath>$(BepInEx_Path)/plugins/</PluginsPath>
+  </PropertyGroup>
+
+  <!-- Output -->
+  <Target AfterTargets="Build" Name="Output">
+    <Copy SourceFiles="$(TargetPath);bin/Debug/$(TargetFramework)/CustomGliders.pdb" DestinationFiles="$(GamePath)/BepInEx/plugins/CustomGliders/CustomGliders.dll;$(GamePath)/BepInEx/plugins/CustomGliders/CustomGliders.pdb" />
+    <MakeDir Directories="$(GamePath)/BepInEx/plugins/CustomGliders/Skins" />
+    <MakeDir Directories="$(GamePath)/BepInEx/plugins/CustomGliders/Gliders" />
+  </Target>
+
+  <!-- Dependencies -->
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
+    
+    <Reference Include="$(ManagedAssembliesPath)/Assembly-CSharp.dll" Publicize="true" />
+    <Reference Include="$(GamePath)/**" Exclude="$(PluginsPath)/CustomGliders/CustomGliders.dll;$(GamePath)/BepInEx/core/0Harmony20.dll;&#xD;&#xA;               $(PluginsPath)/GorillaTextureLoader/GorillaTextureLoader.dll;&#xD;&#xA;               $(GamePath)/BepInEx/LogOutput.log;&#xD;&#xA;               $(GamePath)/BepInEx/cache/harmony_interop_cache.dat;&#xD;&#xA;               $(ManagedAssembliesPath)/Assembly-CSharp.dll;&#xD;&#xA;               $(ManagedAssembliesPath)/netstandard.dll" />
+  </ItemGroup>
+</Project>
