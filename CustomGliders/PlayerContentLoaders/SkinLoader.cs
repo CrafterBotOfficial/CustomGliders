@@ -15,7 +15,7 @@ namespace CustomGliders.PlayerContentLoaders
             base.FileExtension = "skin";
         }
 
-        public async Task<CustomSkin[]> LoadSkins()
+        public CustomSkin[] LoadSkins()
         {
             List<CustomSkin> skins = new List<CustomSkin>();
             string[] files = GetFiles();

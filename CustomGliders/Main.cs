@@ -24,7 +24,7 @@ namespace CustomGliders
                 return;
             }
             Harmony.CreateAndPatchAll(typeof(Main).Assembly);
-            new UnityEngine.GameObject("CustomGliderManager").AddComponent<PlayerContentManager>();
+            new UnityEngine.GameObject("CustomGliderManager").AddComponent<SkinManager>();
         }
     }
 }

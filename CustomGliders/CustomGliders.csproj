@@ -25,4 +25,7 @@
     <Reference Include="$(ManagedAssembliesPath)/Assembly-CSharp.dll" Publicize="true" />
     <Reference Include="$(GamePath)/**" Exclude="$(PluginsPath)/CustomGliders/CustomGliders.dll;$(GamePath)/BepInEx/core/0Harmony20.dll;&#xD;&#xA;               $(PluginsPath)/GorillaTextureLoader/GorillaTextureLoader.dll;&#xD;&#xA;               $(GamePath)/BepInEx/LogOutput.log;&#xD;&#xA;               $(GamePath)/BepInEx/cache/harmony_interop_cache.dat;&#xD;&#xA;               $(ManagedAssembliesPath)/Assembly-CSharp.dll;&#xD;&#xA;               $(ManagedAssembliesPath)/netstandard.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomSkins\" />
+  </ItemGroup>
 </Project>

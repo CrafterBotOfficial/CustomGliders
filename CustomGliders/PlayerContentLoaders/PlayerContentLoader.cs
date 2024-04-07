@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.IO.Compression;
-using System.Threading.Tasks;
 
 namespace CustomGliders.PlayerContentLoaders
 {
@@ -29,7 +28,7 @@ namespace CustomGliders.PlayerContentLoaders
             using Stream packageStream = packageEntry.Open();
             using StreamReader packageReader = new(packageStream);
             string packageJson = packageReader.ReadToEnd();
-            
+
             T? package = UnityEngine.JsonUtility.FromJson<T>(packageJson);
             if (package is null)
             {
@@ -40,7 +39,7 @@ namespace CustomGliders.PlayerContentLoaders
             Main.LogSource.LogDebug("Reading resource file");
             using Stream resourceStream = resourceEntry.Open();
             using MemoryStream resourceMemStream = new();
-            resourceStream.CopyTo(resourceMemStream);    
+            resourceStream.CopyTo(resourceMemStream);
 
             return new PlayerContent<T>(package, resourceMemStream.ToArray());
         }
